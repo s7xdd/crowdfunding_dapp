@@ -1,0 +1,17 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 25px 20px 25px;
+    background-color: rgb(238, 238, 238);
+    align-items: center;
+    box-shadow: 10px 0px 20px 1px;
+
+    .title{
+        font-weight: bold;
+    }
+}
+
+.create_campaign, .connect_wallet{
+    display: flex;
+    gap: 10px;
+}
