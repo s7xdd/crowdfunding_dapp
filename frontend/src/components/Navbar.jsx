@@ -9,7 +9,7 @@ import { useState } from 'react';
       <div className='navbar'>
         <div>
           <Link 
-            className='title' href={'/home'}
+            className='title' href={'/'}
             style={{fontSize: "25px"}}
           >Crowdfund</Link>
         </div>
