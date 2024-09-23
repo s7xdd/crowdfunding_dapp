@@ -85,7 +85,9 @@ const Homepage = () => {
               rounded="full"
               placeholder="Find donations"
             />
-            <CiSearch size="25" />
+            <Box mr={3}>
+              <CiSearch size="25" />
+            </Box>
           </Box>
 
           <Stack direction="row" spacing={5} align="center" mt={7}>
