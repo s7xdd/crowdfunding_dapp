@@ -56,7 +56,7 @@ const CampaignCard = () => {
 
             <Box>
               <Flex align="center">
-                <Progress value={80} flex="1" mr={3} />
+                <Progress value={80} flex="1" mr={3}/>
                 <Text>80%</Text>
               </Flex>
             </Box>
@@ -72,10 +72,10 @@ const CampaignCard = () => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing="2">
-            <Button variant="solid" colorScheme="blue">
+            <Button variant="solid" backgroundColor='#13ADB7' color='white'>
               Read more
             </Button>
-            <Button variant="ghost" colorScheme="blue">
+            <Button variant="ghost" color='#13ADB7'>
               Fund
             </Button>
           </ButtonGroup>

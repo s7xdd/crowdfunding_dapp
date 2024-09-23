@@ -15,6 +15,8 @@ import {
 import React from "react";
 import { CiSearch } from "react-icons/ci";
 import CampaignCard from "../components/CampaignCard";
+import { MdKeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Homepage = () => {
   return (
@@ -77,35 +79,35 @@ const Homepage = () => {
             <CiSearch size="25" />
           </Box>
 
-          <Stack direction='row' spacing={5} align='center' mt={7} >
-            <Button colorScheme="teal" variant="solid" rounded='full'>
+          <Stack direction="row" spacing={5} align="center" mt={7}>
+            <Button colorScheme="teal" variant="solid" rounded="full">
               All
             </Button>
-            <Button colorScheme="teal" variant="outline" rounded='full'>
+            <Button colorScheme="teal" variant="outline" rounded="full">
               Disaster
             </Button>
-            <Button colorScheme="teal" variant="outline" rounded='full'>
+            <Button colorScheme="teal" variant="outline" rounded="full">
               Children
             </Button>
-            <Button colorScheme="teal" variant="outline" rounded='full'>
+            <Button colorScheme="teal" variant="outline" rounded="full">
               Food Crisis
             </Button>
-            <Button colorScheme="teal" variant="outline" rounded='full'>
+            <Button colorScheme="teal" variant="outline" rounded="full">
               Health
             </Button>
-            <Button colorScheme="teal" variant="outline" rounded='full'>
+            <Button colorScheme="teal" variant="outline" rounded="full">
               Education
             </Button>
-            <Button colorScheme="teal" variant="outline" rounded='full'>
+            <Button colorScheme="teal" variant="outline" rounded="full">
               Homeless
             </Button>
-            <Button colorScheme="teal" variant="outline" rounded='full'>
+            <Button colorScheme="teal" variant="outline" rounded="full">
               Animal
             </Button>
-            <Button colorScheme="teal" variant="outline" rounded='full'>
+            <Button colorScheme="teal" variant="outline" rounded="full">
               Pandemic
             </Button>
-            <Button colorScheme="teal" variant="outline" rounded='full'>
+            <Button colorScheme="teal" variant="outline" rounded="full">
               War Crisis
             </Button>
           </Stack>
@@ -127,6 +129,35 @@ const Homepage = () => {
             <CampaignCard />
           </Grid>
         </Box>
+
+        <Box p={20} pt={10}>
+          <Flex align='center' gap='20px' color='#13ADB7'>
+            <MdKeyboardArrowLeft />
+            <Text rounded='full' width={6} backgroundColor='#13ADB7' color='white' display='flex' justifyContent='center' >
+              1
+            </Text>
+            <Text>
+              2
+            </Text>
+            <Text>
+              3
+            </Text>
+            <Text>
+              4
+            </Text>
+            <Text>
+              5
+            </Text>
+            <Text>
+              6
+            </Text>
+            <Text>
+              7
+            </Text>
+            <MdKeyboardArrowRight />
+          </Flex>
+        </Box>
+
       </Box>
     </div>
   );
