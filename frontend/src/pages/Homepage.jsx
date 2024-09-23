@@ -26,6 +26,7 @@ import { CiSearch } from "react-icons/ci";
 import CampaignCard from "../components/CampaignCard";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import Footer from "../components/Footer";
 
 const Homepage = () => {
   return (
@@ -141,8 +142,8 @@ const Homepage = () => {
           </Grid>
         </Box>
 
-        <Box p={20} pt={10} display="flex" gap={20} alignItems='center' mt={6}>
-          <Flex align="center" gap="20px" color="#13ADB7" >
+        <Box p={20} pt={10} display="flex" gap={20} alignItems="center" mt={6}>
+          <Flex align="center" gap="20px" color="#13ADB7">
             <MdKeyboardArrowLeft />
             <Text
               rounded="full"
@@ -201,54 +202,55 @@ const Homepage = () => {
               <AccordionItem>
                 <h2>
                   <AccordionButton>
-                    <Box as="span" flex="1" textAlign="left" color='#13ADB7'>
+                    <Box as="span" flex="1" textAlign="left" color="#13ADB7">
                       What is blockchain crowdfunding?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                Blockchain crowdfunding utilizes blockchain technology to raise funds for 
-                projects, startups, or causes, ensuring transparency and security in 
-                financial transactions.
+                  Blockchain crowdfunding utilizes blockchain technology to
+                  raise funds for projects, startups, or causes, ensuring
+                  transparency and security in financial transactions.
                 </AccordionPanel>
               </AccordionItem>
 
               <AccordionItem>
                 <h2>
                   <AccordionButton>
-                    <Box as="span" flex="1" textAlign="left" color='#13ADB7'>
+                    <Box as="span" flex="1" textAlign="left" color="#13ADB7">
                       How does blockchain crowdfunding work?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  Projects launch campaigns on our platform, detailing their funding goals. 
-                  Backers can contribute using cryptocurrencies, with all transactions securely 
-                  recorded on the blockchain.
+                  Projects launch campaigns on our platform, detailing their
+                  funding goals. Backers can contribute using cryptocurrencies,
+                  with all transactions securely recorded on the blockchain.
                 </AccordionPanel>
               </AccordionItem>
 
               <AccordionItem>
                 <h2>
                   <AccordionButton>
-                    <Box as="span" flex="1" textAlign="left" color='#13ADB7'>
-                    What types of projects can I fund?
+                    <Box as="span" flex="1" textAlign="left" color="#13ADB7">
+                      What types of projects can I fund?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                You can fund a variety of projects, including startups, charitable initiatives, 
-                and creative endeavors, depending on our platform's focus.
+                  You can fund a variety of projects, including startups,
+                  charitable initiatives, and creative endeavors, depending on
+                  our platform's focus.
                 </AccordionPanel>
               </AccordionItem>
-
             </Accordion>
           </Box>
         </Box>
       </Box>
+      <Footer />
     </div>
   );
 };
