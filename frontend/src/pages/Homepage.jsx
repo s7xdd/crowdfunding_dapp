@@ -60,7 +60,7 @@ const Homepage = () => {
             </Text>{" "}
             <Text color="#13ADB7">Donations</Text>
           </Flex>
-          <Box border='1px solid' display='flex' alignItems='center' rounded='full'>
+          <Box border='1px solid' display='flex' alignItems='center' rounded='full' dropShadow='2'>
             <Input border='0' width='500px' rounded='full' placeholder="Find donations" />
             <CiSearch size='25'/>
           </Box>
@@ -70,7 +70,7 @@ const Homepage = () => {
           <Grid
             templateColumns={{ lg: "repeat(4, 1fr)", md: "repeat(2, 1fr)" }}
             gap={6}
-            mt={7}
+            mt={10}
           >
             <CampaignCard />
             <CampaignCard />
