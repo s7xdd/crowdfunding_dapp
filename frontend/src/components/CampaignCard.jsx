@@ -1,4 +1,5 @@
 import {
+  Badge,
   Box,
   Button,
   ButtonGroup,
@@ -32,14 +33,7 @@ const CampaignCard = () => {
           </NavLink>
           <Stack mt="6" spacing="3">
             <Flex justify="space-between">
-              <Text
-                backgroundColor="lightgreen"
-                width={70}
-                rounded="full"
-                align="center"
-              >
-                Active
-              </Text>
+            <Badge colorScheme='green' rounded='full' w='60px' display='flex' justifyContent='center' alignItems='center'>Active</Badge>
               <Text>243 donations</Text>
             </Flex>
             <Heading size="md">Living room Sofa</Heading>
