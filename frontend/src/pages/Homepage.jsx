@@ -46,7 +46,7 @@ const Homepage = () => {
 
           <ButtonGroup>
             <Button colorScheme="blue">Donate now</Button>
-            <Button>Watch</Button>
+            <Button>About us</Button>
           </ButtonGroup>
         </Center>
         <Flex></Flex>
@@ -60,7 +60,9 @@ const Homepage = () => {
             </Text>{" "}
             <Text color="#13ADB7">Donations</Text>
           </Flex>
-          <Input placeholder="Basic usage" />
+          <Box>
+            <Input placeholder="Basic usage" />
+          </Box>
         </Center>
 
         <Box>
