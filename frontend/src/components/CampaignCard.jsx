@@ -50,8 +50,8 @@ const CampaignCard = () => {
 
             <Box>
               <Flex align="center">
-                <Progress value={80} flex="1" mr={3}/>
-                <Text>80%</Text>
+                <Progress value={60} flex="1" mr={3}/>
+                <Text>60%</Text>
               </Flex>
             </Box>
 
