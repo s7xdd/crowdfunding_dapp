@@ -13,7 +13,8 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import React from "react";
-import Donate from "../components/Donate";
+import Donate from "./DonatePage";
+import { Link } from "react-router-dom";
 
 const CampaignPage = () => {
   return (
@@ -67,7 +68,9 @@ const CampaignPage = () => {
               </Box>
 
               <Box>
-                <Button colorScheme='teal' variant='solid'>Contribute</Button>
+                <Link to={`/campaigns/donate/livingroomsofa`}>
+                  <Button colorScheme='teal' variant='solid'>Contribute</Button>
+                </Link>
               </Box>
             </Flex>
           
