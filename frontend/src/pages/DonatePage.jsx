@@ -4,8 +4,9 @@ import React, { useState } from 'react'
 const DonatePage = () => {
   const [owner, setOwner] = useState(true)
   return (
-    <Flex h='900px'>
+    <Flex h='900px' p={7} justify='center' gap={16} mt={20}>
       <Box>
+        <Text fontSize='4xl'>Distribution of Covid Vaccine</Text>
         <Text>Contribution Details</Text>
         <Flex flexDir='column'>
           <Box>
@@ -46,21 +47,21 @@ const DonatePage = () => {
 
       <Divider orientation='vertical'/>
 
-      <Box>
+      <Box p='20px'>
           <Text>Current status of campaign</Text>
-          <Box>
-            <Text fontSize='2xl'>Campaign balance</Text>
+          <Box backgroundColor='yellow' p={5} rounded='10px' mt={3}>
+            <Text fontSize='2xl' fontWeight='semibold'>Campaign balance</Text>
             <Text>Amount stored in smart contract</Text>
             <Box>
               <Flex align="center">
-                <Progress value={60} flex="1" mr={3} rounded='10px'/>
+                <Progress value={60} flex="1" mr={3} rounded='10px' w='500px'/>
                 <Text>60%</Text>
               </Flex>
               <Text>100 ETH funded by 1200 backers.</Text>
             </Box>
           </Box>
           <Text>Withdraw</Text>
-          <Box>
+          <Box Box backgroundColor='yellow' p={5} rounded='10px' mt={3}>
             <Text fontSize='2xl'>Withdraw Raised Funds</Text>
           </Box>
       </Box>
