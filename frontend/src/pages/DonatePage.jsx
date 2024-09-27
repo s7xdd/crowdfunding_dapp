@@ -32,7 +32,7 @@ const DonatePage = () => {
 
           { owner && (
             <>
-              <Text fontWeight='bold'>Danger Zone</Text>
+              <Text fontWeight='bold' mt={5}>Danger Zone</Text>
               <Box backgroundColor='pink' rounded='10px' p={5} display='flex' alignItems='center'>
                 <Flex flexDir='column'>
                   <Text fontWeight='bold'>Quit & Refund</Text>
@@ -49,7 +49,7 @@ const DonatePage = () => {
       <Divider orientation='vertical'/>
 
       <Box p='20px'>
-          <Text>Current status of campaign</Text>
+          <Text fontWeight='semibold'>Current status of campaign</Text>
           <Box backgroundColor='yellow' p={5} rounded='10px' mt={3}>
             <Text fontSize='2xl' fontWeight='semibold'>Campaign balance</Text>
             <Text>Amount stored in smart contract</Text>
@@ -61,7 +61,7 @@ const DonatePage = () => {
               <Text>100 ETH funded by 1200 backers.</Text>
             </Box>
           </Box>
-          <Text>Withdraw</Text>
+          <Text mt={5} fontWeight='semibold'>Withdraw</Text>
           <Box Box backgroundColor='yellow' p={5} rounded='10px' mt={3}>
             <Text fontSize='2xl'>Withdraw Raised Funds</Text>
           </Box>
