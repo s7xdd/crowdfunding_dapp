@@ -3,10 +3,11 @@ import React, { useState } from 'react'
 
 const DonatePage = () => {
   const [owner, setOwner] = useState(true)
+  const [title, setTitle] = useState('Distribution of covid vaccines')
   return (
     <Flex h='900px' p={7} justify='center' gap={16} mt={20}>
       <Box>
-        <Text fontSize='4xl'>Distribution of Covid Vaccine</Text>
+        <Text fontSize='4xl'>{title}</Text>
         <Text>Contribution Details</Text>
         <Flex flexDir='column'>
           <Box>
