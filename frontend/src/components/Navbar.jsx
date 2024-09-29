@@ -3,9 +3,11 @@ import { FaPencilAlt } from "react-icons/fa";
 import "../styles/Navbar.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useWallet } from 'use-wallet'
 
 const Navbar = () => {
   const [wallet, setWallet] = useState(false);
+  const usewallet = useWallet();
   return (
     <div className="navbar">
       <div>
