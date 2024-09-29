@@ -21,14 +21,21 @@ import {
   StatNumber,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import CampaignCard from "../components/CampaignCard";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
+
 
 const Homepage = () => {
+  const navigate = useNavigate()
+  const [campaignsList, setCampaignsList] = useState([])
+  useEffect(() => {
+
+  }, [])
   return (
     <div>
       <div>
