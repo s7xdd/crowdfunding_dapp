@@ -7,6 +7,11 @@ import {
   Checkbox,
   Divider,
   Flex,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
   Progress,
   Text,
 } from "@chakra-ui/react";
@@ -15,12 +20,22 @@ import StatusBadge from "../components/StatusBadge";
 import { FaExclamationTriangle } from "react-icons/fa";
 
 const DonatePage = () => {
-  const [owner, setOwner] = useState(true);
+  const [owner, setOwner] = useState(false);
   const [title, setTitle] = useState("Distribution of covid vaccines");
+  const [wallet, setWallet] = useState(false);
+
   return (
-    <Flex h="900px" p={7} justify="center" gap={16} mt={10}>
+    <Flex
+      h="900px"
+      p={7}
+      justify="center"
+      justifyContent="space-between"
+      mt={10}
+      pl={40}
+      pr={40}
+    >
       <Box>
-        <Flex>
+        <Flex gap="50px">
           <Text fontSize="4xl" lineHeight="1.2">
             {title}{" "}
           </Text>
@@ -96,21 +111,69 @@ const DonatePage = () => {
             <Text>100 ETH funded by 1200 backers.</Text>
           </Box>
         </Box>
-        <Text mt={5} fontWeight="semibold">
-          Withdraw
-        </Text>
-        <Box Box backgroundColor="#ffcbb9" p={5} rounded="10px" mt={3}>
-          <Alert status="info">
-            <AlertIcon />
-            To withdraw raised funds, campaign has to be ended.
-          </Alert>
-          <Alert status="warning" mt={2}>
-            <Checkbox size="md" colorScheme="orange" border='gray'>
-              I/We understand that, once campaign has ended, it cannot be reversed.
-            </Checkbox>
-          </Alert>
-          <Button colorScheme='red' w='full' mt={3}>END CAMPAIGN & WITHDRAW</Button>
-        </Box>
+        {owner ? (
+          <>
+            <Text mt={5} fontWeight="semibold">
+              Withdraw
+            </Text>
+            <Box Box backgroundColor="#ffcbb9" p={5} rounded="10px" mt={3}>
+              <Alert status="info" rounded="5px">
+                <AlertIcon />
+                To withdraw raised funds, campaign has to be ended.
+              </Alert>
+              <Alert status="warning" mt={2} rounded="5px">
+                <Checkbox size="md" colorScheme="orange" border="gray">
+                  I/We understand that, once campaign has ended, it cannot be
+                  reversed.
+                </Checkbox>
+              </Alert>
+              <Button colorScheme="red" w="full" mt={3}>
+                END CAMPAIGN & WITHDRAW
+              </Button>
+            </Box>
+          </>
+        ) : (
+          <>
+            <Text mt={5} fontWeight="semibold">
+              Contribute
+            </Text>
+            <Box Box backgroundColor="#ffcbb9" p={5} rounded="10px" mt={3}>
+              <Text fontSize="2xl" fontWeight="semibold">
+                Be a backer
+              </Text>
+              <Text mt={2}>How much would you like to fund?</Text>
+              <NumberInput precision={2} step={0.01} mt={3} borderColor="gray">
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper border="none" />
+                  <NumberDecrementStepper border="none" />
+                </NumberInputStepper>
+              </NumberInput>
+              <Text color="gray" fontSize="15px" mt={2}>
+                Enter amount in Ether you want to contribute
+              </Text>
+              {wallet ? (
+                <Button colorScheme="red" w="full" mt={3}>
+                  CONFIRM
+                </Button>
+              ) : (
+                <Alert status="error" rounded='15px' mt={4}>
+                  <Flex align='center' gap={24} >
+                    <Box display='flex'>
+                      <AlertIcon />
+                      Please connect your wallet to proceed
+                    </Box>
+                    <Button border='none' backgroundColor='transparent' color='darkred'>CONNECT</Button>
+                  </Flex>
+                </Alert>
+              )}
+              <Box mt={4} color='gray'>
+                <Text  fontWeight='semibold'>Scheme - All or Nothing.</Text>
+                <Text>The money you fund will be stored in a smart contract you can trust.</Text>
+              </Box>
+            </Box>
+          </>
+        )}
       </Box>
     </Flex>
   );

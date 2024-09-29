@@ -12,11 +12,13 @@ import {
   Text,
   Flex,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import Donate from "./DonatePage";
 import { Link } from "react-router-dom";
 
 const CampaignPage = () => {
+  const [owner, setOwner] = useState(false)
+
   return (
     <Box padding={14}>
       <Card
@@ -68,9 +70,15 @@ const CampaignPage = () => {
               </Box>
 
               <Box>
-                <Link to={`/campaigns/donate/livingroomsofa`}>
-                  <Button colorScheme='teal' variant='solid'>Contribute</Button>
-                </Link>
+                {owner ? (
+                  <Link to={`/campaigns/edit/livingroomsofa`}>
+                    <Button colorScheme='teal' variant='solid'>Edit Campaign</Button>
+                  </Link>
+                ) : (
+                  <Link to={`/campaigns/donate/livingroomsofa`}>
+                    <Button colorScheme='teal' variant='solid'>Contribute</Button>
+                  </Link>
+                )}
               </Box>
             </Flex>
           
