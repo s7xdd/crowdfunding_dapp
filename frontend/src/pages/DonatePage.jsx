@@ -151,7 +151,7 @@ const DonatePage = () => {
 
       <Box p="20px">
         <Text fontWeight="semibold">Current status of campaign</Text>
-        <Box backgroundColor="yellow" p={5} rounded="10px" mt={3}>
+        <Box backgroundColor="yellow" p={7} rounded="10px" mt={3}>
           <Text fontSize="2xl" fontWeight="semibold">
             Campaign balance
           </Text>
@@ -233,7 +233,7 @@ const DonatePage = () => {
             <Text mt={5} fontWeight="semibold">
               Contribute
             </Text>
-            <Box Box backgroundColor="#ffcbb9" p={5} rounded="10px" mt={3}>
+            <Box backgroundColor="#c8ffc8" p={8} rounded="10px" mt={3}>
               <Text fontSize="2xl" fontWeight="semibold">
                 Be a backer
               </Text>
@@ -271,6 +271,7 @@ const DonatePage = () => {
                         <NumberDecrementStepper border="none" />
                       </NumberInputStepper>
                     </NumberInput>
+                    <Flex justify='center'><Button colorScheme="blue" mt={4}>DONATE</Button></Flex>
                   </>
                 )
               ) : (
