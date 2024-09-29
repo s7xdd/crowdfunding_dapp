@@ -18,6 +18,7 @@ import {
 import React from "react";
 import { FaClock } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import StatusBadge from "./StatusBadge";
 
 const CampaignCard = () => {
   return (
@@ -33,8 +34,8 @@ const CampaignCard = () => {
           </NavLink>
           <Stack mt="6" spacing="3">
             <Flex justify="space-between">
-            <Badge colorScheme='green' rounded='full' w='60px' display='flex' justifyContent='center' alignItems='center'>Active</Badge>
               <Text>243 donations</Text>
+              <StatusBadge status='active'/>
             </Flex>
             <Heading size="md">Living room Sofa</Heading>
             <Text>
