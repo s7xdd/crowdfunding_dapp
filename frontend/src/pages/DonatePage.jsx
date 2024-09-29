@@ -22,7 +22,8 @@ import { FaExclamationTriangle } from "react-icons/fa";
 const DonatePage = () => {
   const [owner, setOwner] = useState(false);
   const [title, setTitle] = useState("Distribution of covid vaccines");
-  const [wallet, setWallet] = useState(false);
+  const [wallet, setWallet] = useState(true);
+  const [donationStatus, setDonationStatus] = useState(true);
 
   return (
     <Flex
@@ -141,35 +142,60 @@ const DonatePage = () => {
               <Text fontSize="2xl" fontWeight="semibold">
                 Be a backer
               </Text>
-              <Text mt={2}>How much would you like to fund?</Text>
-              <NumberInput precision={2} step={0.01} mt={3} borderColor="gray">
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper border="none" />
-                  <NumberDecrementStepper border="none" />
-                </NumberInputStepper>
-              </NumberInput>
               <Text color="gray" fontSize="15px" mt={2}>
                 Enter amount in Ether you want to contribute
               </Text>
               {wallet ? (
-                <Button colorScheme="red" w="full" mt={3}>
-                  CONFIRM
-                </Button>
+                donationStatus ? (
+                  <>
+                    <Alert status="success" variant="subtle" rounded="10px" mt={3}>
+                      <AlertIcon />
+                      <Box>
+                        <Text>Funded successfully</Text>
+                        <Text>Thanks for your valuable contribution</Text>
+                      </Box>
+                    </Alert>
+                  </>
+                ) : (
+                  <>
+                    <Text mt={2}>How much would you like to fund?</Text>
+                    <NumberInput
+                      precision={2}
+                      step={0.001}
+                      mt={3}
+                      borderColor="gray"
+                    >
+                      <NumberInputField placeholder="0.001" />
+                      <NumberInputStepper>
+                        <NumberIncrementStepper border="none" />
+                        <NumberDecrementStepper border="none" />
+                      </NumberInputStepper>
+                    </NumberInput>
+                  </>
+                )
               ) : (
-                <Alert status="error" rounded='15px' mt={4}>
-                  <Flex align='center' gap={24} >
-                    <Box display='flex'>
+                <Alert status="error" rounded="15px" mt={4}>
+                  <Flex align="center" gap={24}>
+                    <Box display="flex">
                       <AlertIcon />
                       Please connect your wallet to proceed
                     </Box>
-                    <Button border='none' backgroundColor='transparent' color='darkred'>CONNECT</Button>
+                    <Button
+                      border="none"
+                      backgroundColor="transparent"
+                      color="darkred"
+                    >
+                      CONNECT
+                    </Button>
                   </Flex>
                 </Alert>
               )}
-              <Box mt={4} color='gray'>
-                <Text  fontWeight='semibold'>Scheme - All or Nothing.</Text>
-                <Text>The money you fund will be stored in a smart contract you can trust.</Text>
+              <Box mt={4} color="gray">
+                <Text fontWeight="semibold">Scheme - All or Nothing.</Text>
+                <Text>
+                  The money you fund will be stored in a smart contract you can
+                  trust.
+                </Text>
               </Box>
             </Box>
           </>
