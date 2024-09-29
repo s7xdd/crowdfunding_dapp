@@ -28,23 +28,22 @@ import StatusBadge from "../components/StatusBadge";
 import { FaExclamationTriangle } from "react-icons/fa";
 
 const DonatePage = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen: isAbortOpen, onOpen: onAbortOpen, onClose: onAbortClose } = useDisclosure();
+  const { isOpen: isAnotherAlertOpen, onOpen: onAnotherAlertOpen, onClose: onAnotherAlertClose } = useDisclosure();
   const cancelRef = React.useRef();
-  const [owner, setOwner] = useState(true);
+  const [owner, setOwner] = useState(false);
   const [title, setTitle] = useState("Distribution of covid vaccines");
   const [wallet, setWallet] = useState(true);
   const [donationStatus, setDonationStatus] = useState(false);
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
 
   return (
     <Flex
       h="900px"
       p={7}
       justify="center"
-      justifyContent="space-between"
+      justifyContent="space-evenly"
       mt={10}
-      pl={40}
-      pr={40}
     >
       <Box>
         <Flex gap="50px">
@@ -82,7 +81,7 @@ const DonatePage = () => {
           </Box>
         </Flex>
 
-        {owner && (
+        {owner && active && (
           <>
             <Text fontWeight="bold" mt={3}>
               Danger Zone
@@ -102,34 +101,41 @@ const DonatePage = () => {
                   Certain
                 </Text>
               </Flex>
-              <Button colorScheme="red" onClick={onOpen} ml={5} h={14} w={32}>
+              <Button colorScheme="red" onClick={onAbortOpen} ml={5} h={14} w={32}>
                 Abort <br /> Campaign
               </Button>
 
               <AlertDialog
-                isOpen={isOpen}
+                isOpen={isAbortOpen}
                 leastDestructiveRef={cancelRef}
-                onClose={onClose}
+                onClose={onAbortClose}
               >
                 <AlertDialogOverlay>
-                  <AlertDialogContent >
+                  <AlertDialogContent>
                     <AlertDialogHeader fontSize="lg" fontWeight="bold">
-                      Delete Customer
+                      Abort Campaign
                     </AlertDialogHeader>
 
                     <AlertDialogBody>
-                      <Text fontSize='lg'>
+                      <Text fontSize="lg">
                         Why would you like to abort campaign?
                       </Text>
-                      <Input mt={3}/>
-                      <Text mt={2}>The reason will be provided in campaign page to notify viewers and backers</Text>
+                      <Input mt={3} />
+                      <Text mt={2}>
+                        The reason will be provided in campaign page to notify
+                        viewers and backers
+                      </Text>
                     </AlertDialogBody>
 
-                    <AlertDialogFooter display='flex' flexDirection='column' gap={3}>
-                      <Button colorScheme="red" onClick={onClose} w='full'>
-                        ABORT CAMPAIGN AND WITHDRAW
+                    <AlertDialogFooter
+                      display="flex"
+                      flexDirection="column"
+                      gap={3}
+                    >
+                      <Button colorScheme="red" onClick={onAbortClose} w="full">
+                        ABORT CAMPAIGN
                       </Button>
-                      <Button ref={cancelRef} onClick={onClose} w='full'>
+                      <Button ref={cancelRef} onClick={onAbortClose} w="full">
                         Cancel
                       </Button>
                     </AlertDialogFooter>
@@ -159,7 +165,8 @@ const DonatePage = () => {
           </Box>
         </Box>
         {owner ? (
-          <>
+          active && (
+            <>
             <Text mt={5} fontWeight="semibold">
               Withdraw
             </Text>
@@ -177,11 +184,50 @@ const DonatePage = () => {
                   reversed.
                 </Checkbox>
               </Alert>
-              <Button colorScheme="red" w="full" mt={3}>
+              <Button colorScheme="red" w="full" mt={3} onClick={onAnotherAlertOpen}>
                 END CAMPAIGN & WITHDRAW
               </Button>
+
+              <AlertDialog
+                isOpen={isAnotherAlertOpen}
+                leastDestructiveRef={cancelRef}
+                onClose={onAnotherAlertClose}
+              >
+                <AlertDialogOverlay>
+                  <AlertDialogContent>
+                    <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                      End Campaign
+                    </AlertDialogHeader>
+
+                    <AlertDialogBody>
+                      <Text fontSize="lg">
+                        Why would you like to end campaign?
+                      </Text>
+                      <Input mt={3} />
+                      <Text mt={2}>
+                        The reason will be provided in campaign page to notify
+                        viewers and backers
+                      </Text>
+                    </AlertDialogBody>
+
+                    <AlertDialogFooter
+                      display="flex"
+                      flexDirection="column"
+                      gap={3}
+                    >
+                      <Button colorScheme="red" onClick={onAbortClose} w="full">
+                        END CAMPAIGN & WITHDRAW
+                      </Button>
+                      <Button ref={cancelRef} onClick={onAbortClose} w="full">
+                        Cancel
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialogOverlay>
+              </AlertDialog>
             </Box>
           </>
+          )
         ) : (
           <>
             <Text mt={5} fontWeight="semibold">
