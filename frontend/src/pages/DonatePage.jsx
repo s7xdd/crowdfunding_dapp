@@ -20,10 +20,12 @@ import StatusBadge from "../components/StatusBadge";
 import { FaExclamationTriangle } from "react-icons/fa";
 
 const DonatePage = () => {
-  const [owner, setOwner] = useState(false);
+  const [owner, setOwner] = useState(true);
   const [title, setTitle] = useState("Distribution of covid vaccines");
   const [wallet, setWallet] = useState(true);
-  const [donationStatus, setDonationStatus] = useState(true);
+  const [donationStatus, setDonationStatus] = useState(false);
+  const [active, setActive] = useState(false)
+  
 
   return (
     <Flex
@@ -40,7 +42,11 @@ const DonatePage = () => {
           <Text fontSize="4xl" lineHeight="1.2">
             {title}{" "}
           </Text>
-          <StatusBadge status="active" />
+          {active ? (
+            <StatusBadge status="active" />
+          ) : (
+            <StatusBadge status="expired" />
+          )}
         </Flex>
         <Text mt={6} fontWeight="semibold">
           Contribution Details
@@ -117,8 +123,9 @@ const DonatePage = () => {
             <Text mt={5} fontWeight="semibold">
               Withdraw
             </Text>
-            <Box Box backgroundColor="#ffcbb9" p={5} rounded="10px" mt={3}>
-              <Alert status="info" rounded="5px">
+            <Box backgroundColor="#ffcbb9" p={5} rounded="10px" mt={3}>
+              <Text fontSize='3xl' fontWeight='semibold'>Withdraw Raised Funds</Text>
+              <Alert status="info" rounded="5px" mt={4}>
                 <AlertIcon />
                 To withdraw raised funds, campaign has to be ended.
               </Alert>
