@@ -15,6 +15,7 @@ import {
 import React, { useState } from "react";
 import Donate from "./DonatePage";
 import { Link } from "react-router-dom";
+import StatusBadge from "../components/StatusBadge";
 
 const CampaignPage = () => {
   const [owner, setOwner] = useState(false)
@@ -48,7 +49,7 @@ const CampaignPage = () => {
             <Box mt={28}>
               <Flex justify='space-between' align='center'>
               <Text fontSize='4xl' fontWeight='bold' mb={3}>$2,45,000</Text>
-              <Badge colorScheme='green' rounded='full' w='60px' h='30px' display='flex' justifyContent='center' alignItems='center'>Active</Badge>
+              <StatusBadge status='active'/>
               </Flex>
               <Flex align="center">
                 <Progress value={60} rounded='full' h={3} flex="1" mr={3}/>

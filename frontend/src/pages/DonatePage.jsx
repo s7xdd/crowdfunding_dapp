@@ -1,5 +1,11 @@
 import {
   Alert,
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
   AlertIcon,
   Badge,
   Box,
@@ -7,6 +13,7 @@ import {
   Checkbox,
   Divider,
   Flex,
+  Input,
   NumberDecrementStepper,
   NumberIncrementStepper,
   NumberInput,
@@ -14,18 +21,20 @@ import {
   NumberInputStepper,
   Progress,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import StatusBadge from "../components/StatusBadge";
 import { FaExclamationTriangle } from "react-icons/fa";
 
 const DonatePage = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
   const [owner, setOwner] = useState(true);
   const [title, setTitle] = useState("Distribution of covid vaccines");
   const [wallet, setWallet] = useState(true);
   const [donationStatus, setDonationStatus] = useState(false);
-  const [active, setActive] = useState(false)
-  
+  const [active, setActive] = useState(false);
 
   return (
     <Flex
@@ -93,9 +102,40 @@ const DonatePage = () => {
                   Certain
                 </Text>
               </Flex>
-              <Button backgroundColor="red" color="white" ml={5} h={14} w={32}>
+              <Button colorScheme="red" onClick={onOpen} ml={5} h={14} w={32}>
                 Abort <br /> Campaign
               </Button>
+
+              <AlertDialog
+                isOpen={isOpen}
+                leastDestructiveRef={cancelRef}
+                onClose={onClose}
+              >
+                <AlertDialogOverlay>
+                  <AlertDialogContent >
+                    <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                      Delete Customer
+                    </AlertDialogHeader>
+
+                    <AlertDialogBody>
+                      <Text fontSize='lg'>
+                        Why would you like to abort campaign?
+                      </Text>
+                      <Input mt={3}/>
+                      <Text mt={2}>The reason will be provided in campaign page to notify viewers and backers</Text>
+                    </AlertDialogBody>
+
+                    <AlertDialogFooter display='flex' flexDirection='column' gap={3}>
+                      <Button colorScheme="red" onClick={onClose} w='full'>
+                        ABORT CAMPAIGN AND WITHDRAW
+                      </Button>
+                      <Button ref={cancelRef} onClick={onClose} w='full'>
+                        Cancel
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialogOverlay>
+              </AlertDialog>
             </Box>
           </>
         )}
@@ -124,7 +164,9 @@ const DonatePage = () => {
               Withdraw
             </Text>
             <Box backgroundColor="#ffcbb9" p={5} rounded="10px" mt={3}>
-              <Text fontSize='3xl' fontWeight='semibold'>Withdraw Raised Funds</Text>
+              <Text fontSize="3xl" fontWeight="semibold">
+                Withdraw Raised Funds
+              </Text>
               <Alert status="info" rounded="5px" mt={4}>
                 <AlertIcon />
                 To withdraw raised funds, campaign has to be ended.
@@ -155,7 +197,12 @@ const DonatePage = () => {
               {wallet ? (
                 donationStatus ? (
                   <>
-                    <Alert status="success" variant="subtle" rounded="10px" mt={3}>
+                    <Alert
+                      status="success"
+                      variant="subtle"
+                      rounded="10px"
+                      mt={3}
+                    >
                       <AlertIcon />
                       <Box>
                         <Text>Funded successfully</Text>
