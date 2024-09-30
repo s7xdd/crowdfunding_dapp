@@ -31,10 +31,10 @@ const DonatePage = () => {
   const { isOpen: isAbortOpen, onOpen: onAbortOpen, onClose: onAbortClose } = useDisclosure();
   const { isOpen: isAnotherAlertOpen, onOpen: onAnotherAlertOpen, onClose: onAnotherAlertClose } = useDisclosure();
   const cancelRef = React.useRef();
-  const [owner, setOwner] = useState(false);
+  const [owner, setOwner] = useState(true);
   const [title, setTitle] = useState("Distribution of covid vaccines");
-  const [wallet, setWallet] = useState(true);
-  const [donationStatus, setDonationStatus] = useState(false);
+  const [wallet, setWallet] = useState(false);
+  const [donationStatus, setDonationStatus] = useState(true);
   const [active, setActive] = useState(true);
 
   return (
