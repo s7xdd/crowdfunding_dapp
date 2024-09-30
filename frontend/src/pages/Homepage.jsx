@@ -135,17 +135,18 @@ const Homepage = () => {
         <Box>
           <Grid
             templateColumns={{ lg: "repeat(4, 1fr)", md: "repeat(2, 1fr)" }}
+            columnGap={7}
             rowGap={10}
             pl={20}
             pt={10}
             pr={20}
           >
-            <CampaignCard />
-            <CampaignCard />
-            <CampaignCard />
-            <CampaignCard />
-            <CampaignCard />
-            <CampaignCard />
+            <CampaignCard title={'Tsunami Disaster'} smallDescription={'Rebuild Lives After the Tsunami'} amount={10} timeLeft={2} totalAmount={12} donations={225} value={83}/>
+            <CampaignCard title={'Wildfire Relief'} smallDescription={'Together, we can help. '} amount={4} timeLeft={10} totalAmount={15} donations={25} value={26}/>
+            <CampaignCard title={'Earthquake Relief'} smallDescription={'A powerful earthquake has struck Johns Valley'} amount={1.5} timeLeft={6} totalAmount={12} donations={54} value={12}/>
+            <CampaignCard title={'Cancer Treatment'} smallDescription={'Philip has terminal cancer'} amount={13} timeLeft={1} totalAmount={14} donations={129} value={92}/>
+            <CampaignCard title={'Heart transplant'} smallDescription={'Help mathew have a heart'} amount={0.32} timeLeft={14} totalAmount={2} donations={3} value={16}/>
+            <CampaignCard title={'Education for life'} smallDescription={'Help the students'} amount={1.99} timeLeft={4} totalAmount={5} donations={15} value={39}/>
           </Grid>
         </Box>
 
