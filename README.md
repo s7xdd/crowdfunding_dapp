@@ -10,7 +10,7 @@ A front end dapp Crowdfunding platform project created using React.
     <a href="https://github.com/s7xdd/crowdfunding_dapp"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/s7xdd/crowdfunding_dapp">View Demo</a>
+    <a href="https://dapp-s7xdd.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/s7xdd/crowdfunding_dapp/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
